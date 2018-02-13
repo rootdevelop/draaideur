@@ -25,11 +25,17 @@ public class App {
         allProducts.add(D);
         allProducts.add(E);
 
+        // Create new discounts for A, B & E
+        ArrayList<Discount> discounts = new ArrayList<Discount>();
+        discounts.add(new Discount(A, 3, 2));
+        discounts.add(new Discount(B, 2, 1));
+        discounts.add(new Discount(E, 4, 10));
+
         // Create new Register
         IRegister register = new Register();
 
         // Initialize register
-        register.initialize(allProducts);
+        register.initialize(allProducts, discounts);
 
         // Create new Customer
         Customer customer = new RegularCustomer("Winterklaas");

@@ -5,9 +5,11 @@ import java.util.ArrayList;
 public class Register implements IRegister {
 
     private ArrayList<Product> allProducts = new ArrayList<Product>();
+    private ArrayList<Discount> discounts = new ArrayList<Discount>();
 
-    public void initialize(ArrayList<Product> productList) {
+    public void initialize(ArrayList<Product> productList, ArrayList<Discount> discounts) {
         this.allProducts = productList;
+        this.discounts = discounts;
     }
 
     public void checkout(Customer customer) {
@@ -73,31 +75,16 @@ public class Register implements IRegister {
 
     private int getProductDiscount(Product product, int count) {
 
-        /**
-         * Product A gives 20 discount per 3 items
-         */
-        if (product.getName().equals("Robijn"))
-            return applyDiscount(count, 3, 2);
-
-        /**
-         * Product A gives 20 discount per 3 items
-         */
-        if (product.getName().equals("Brinta"))
-            return applyDiscount(count, 2, 1);
-
-        /**
-         * Product A gives 20 discount per 3 items
-         */
-        if (product.getName().equals("Luiers"))
-            return applyDiscount(count, 4, 10);
-
+        for(Discount discount : discounts) {
+            if (product.equals(discount.getProduct()))
+                return applyDiscount(count, discount.getCount(), discount.getDiscount());
+        }
 
         return 0;
 
     }
 
     private int applyDiscount(int productCount, int discountCount, int discountPricePerDiscountCount) {
-
 
         int offers = productCount / discountCount;
 
