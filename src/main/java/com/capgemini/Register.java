@@ -12,13 +12,22 @@ public class Register implements IRegister {
 
     public void checkout(Customer customer) {
 
+        System.out.println();
         System.out.println(customer.greeting());
+        System.out.println("---------------------------------------------------------------------------------");
 
         int discount = calculateDiscount(customer.getProducts());
 
         int total = calculateTotal(customer.getProducts(), discount);
 
-        System.out.println("Thank you for ordering, your total will be " + total + " which includes a " + discount + " discount");
+        System.out.println("---------------------------------------------------------------------------------");
+
+        System.out.println("Total: € " + total);
+        System.out.println("Discount: € " + discount);
+        System.out.println();
+        System.out.println("Thank you for ordering");
+
+        System.out.println("---------------------------------------------------------------------------------");
 
     }
 
@@ -54,7 +63,7 @@ public class Register implements IRegister {
 
 
             if (productCount != 0) {
-                System.out.println("BEEP.. " + productCount + "x " + product.getName() + " scanned (regular price: " + (product.getPrice() * productCount) + " discount: " + productDiscount + ")");
+                System.out.println("BEEP.. " + productCount + "x " + product.getName() + " scanned (regular price: € " + (product.getPrice() * productCount) + " discount: € " + productDiscount + ")");
             }
         }
 

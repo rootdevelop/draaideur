@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 
 public class App {
+
     public static void main(String[] args) {
 
         // Create new products
@@ -39,6 +40,8 @@ public class App {
         customer.addProduct(E);
         customer.addProduct(B);
         customer.addProduct(E);
+        customer.addProduct(C);
+        customer.addProduct(C);
         customer.addProduct(E);
         customer.addProduct(E);
 
