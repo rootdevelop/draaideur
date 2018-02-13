@@ -33,7 +33,7 @@ public class Register implements IRegister {
 
     }
 
-    public int calculateTotal(ArrayList<Product> products, int discount) {
+    private int calculateTotal(ArrayList<Product> products, int discount) {
 
         int total = 0;
 
@@ -45,7 +45,7 @@ public class Register implements IRegister {
 
     }
 
-    public int calculateDiscount(ArrayList<Product> products) {
+    private int calculateDiscount(ArrayList<Product> products) {
 
         int discount = 0;
 
