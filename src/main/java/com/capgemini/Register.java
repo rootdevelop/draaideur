@@ -64,7 +64,7 @@ public class Register implements IRegister {
             discount += productDiscount;
 
 
-            if (productCount != 0) {
+            if (productCount > 0) {
                 System.out.println("BEEP.. " + productCount + "x " + product.getName() + " scanned (regular price: € " + (product.getPrice() * productCount) + " discount: € " + productDiscount + ")");
             }
         }
@@ -75,7 +75,7 @@ public class Register implements IRegister {
 
     private int getProductDiscount(Product product, int count) {
 
-        for(Discount discount : discounts) {
+        for(Discount discount : this.discounts) {
             if (product.equals(discount.getProduct()))
                 return applyDiscount(count, discount.getCount(), discount.getDiscount());
         }
